@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .pixelate {
   image-rendering: pixelated;
 }
@@ -16,8 +20,13 @@
   }
 }
 
+.row {
+  height: 60px;
+}
+
 .tile {
   display: inline-flex;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .tree {

@@ -6,8 +6,30 @@ function getTileSprite(type) {
   switch (type) {
     case 0:
       return "grass";
+    case 1:
+      return "door";
+    case 2:
+      return "dirt";
+    case 3:
+      return "floor";
+    case 4:
+      return "grass";
     case 5:
       return "tree";
+    case 6:
+      return "wall";
+    case 7:
+      return "rock";
+    case 8:
+      return "fence";
+    case 9:
+      return "counter";
+    case 10:
+      return "isle";
+    case 10:
+      return "window";
+    case 10:
+      return "chest";
     default:
       return "";
   }
@@ -54,7 +76,9 @@ function Map(props) {
 }
 
 const mapStateToProps = state => {
-  return {...state};
+  return {
+    tiles: state.map.tiles
+  };
 };
 
 export default connect(mapStateToProps)(Map);
