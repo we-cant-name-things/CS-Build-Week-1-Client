@@ -1,9 +1,17 @@
 import React from 'react'
+import Player from '../player/Player'
+import Map from '../components/Map'
 
-export default function Game() {
+export default function Game(props) {
     return (
-        <div>
-            <h2>Welcome to the Game</h2>
+        <div style={{
+            position: 'relative',
+            width: '800px',
+            height: '400px',
+            margin: '20px auto'
+        }}>
+            <Map />
+            <Player />
         </div>
     )
 }

@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
      <Route path='/login' component={Login} />
-     
+
      {/* Will become a PrivateRoute once authenticated */}
      <Route exact path='/' component={Game} />
     </div>
