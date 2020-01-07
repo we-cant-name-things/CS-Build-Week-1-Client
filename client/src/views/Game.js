@@ -1,17 +1,29 @@
-import React from 'react'
-import Player from '../player/Player'
-import Map from '../components/Map'
+import React from "react";
+import Player from "../player/Player";
+import Map from "../components/Map";
+
+import {tiles} from "../data/maps/1";
+import {store} from "../store";
 
 export default function Game(props) {
-    return (
-        <div style={{
-            position: 'relative',
-            width: '800px',
-            height: '400px',
-            margin: '20px auto'
-        }}>
-            <Map />
-            <Player />
-        </div>
-    )
+  store.dispatch({
+    type: "ADD_TILES",
+    payload: {
+      tiles
+    }
+  });
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "1200px",
+        height: "600px",
+        margin: "20px auto"
+      }}
+    >
+      <Map />
+      <Player />
+    </div>
+  );
 }
