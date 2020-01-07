@@ -1,12 +1,8 @@
-.pixelate {
-  image-rendering: pixelated;
-}
-
 .character_sprite {
   animation: moveSpriteSheet 1s steps(4) infinite;
 }
 
-@keyframes moveSpriteSheet {
+@keyframes moveSpireSheet {
   from {
     transform: translate3d(0px, 0, 0);
   }
