@@ -1,2 +1,3 @@
-export const SPRITE_HEIGHT =  60
-export const SPRITE_WIDTH = 40
+export const SPRITE_SIZE = 60;
+export const MAP_HEIGHT = SPRITE_SIZE * 10;
+export const MAP_WIDTH = SPRITE_SIZE * 20;

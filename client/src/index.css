@@ -3,6 +3,7 @@
 }
 
 .character_sprite {
+  margin: 0 auto;
   animation: moveSpriteSheet 1s steps(4) infinite;
 }
 
@@ -13,4 +14,16 @@
   to {
     transform: translate3d(-100%, 0, 0);
   }
+}
+
+.tile {
+  display: inline-flex;
+}
+
+.tree {
+  background-image: url("./assets/obstacles/tree.png");
+}
+
+.grass {
+  background-color: green;
 }

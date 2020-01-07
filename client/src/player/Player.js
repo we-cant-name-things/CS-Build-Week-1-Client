@@ -15,7 +15,9 @@ const Player = props => {
         // backgroundPosition: props.spriteLocation,
         width: "40px",
         height: "60px",
-        overflow: "hidden"
+        overflow: "hidden",
+        border: "1px solid red",
+        marginLeft: "10px"
       }}
     >
       <img
