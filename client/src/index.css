@@ -3,10 +3,25 @@
   box-sizing: border-box;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 body {
   background-color: #030303;
   color: #ddd;
   font-family: "Press Start 2P", cursive;
+}
+
+h3 {
+  margin: 16px 0 24px;
+  color: #666;
 }
 
 /* Player Styles */
@@ -49,18 +64,28 @@ body {
 }
 
 /* Stats Styles */
-.stats_container {
+.game_container {
   width: 1260px;
   margin: 0 auto;
   letter-spacing: 0.5px;
+  display: flex;
 }
 
-.stat__title {
+.stats {
+  width: 50%;
+}
+
+.stat > span {
   color: dodgerblue;
 }
 
 .stat {
   margin-bottom: 16px;
+}
+
+/*  Controls Styles */
+.controls {
+  flex: 1;
 }
 
 /* TILES */
