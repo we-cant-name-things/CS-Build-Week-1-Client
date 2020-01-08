@@ -1,7 +1,15 @@
+/* Global */
 * {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #030303;
+  color: #ddd;
+  font-family: "Press Start 2P", cursive;
+}
+
+/* Player Styles */
 .pixelate {
   image-rendering: pixelated;
 }
@@ -40,11 +48,25 @@
   }
 }
 
-.row {
-  height: 60px;
+/* Stats Styles */
+.stats_container {
+  width: 1260px;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+
+.stat__title {
+  color: dodgerblue;
+}
+
+.stat {
+  margin-bottom: 16px;
 }
 
 /* TILES */
+.row {
+  height: 60px;
+}
 
 .tile {
   display: inline-flex;
