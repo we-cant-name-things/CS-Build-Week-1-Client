@@ -51,8 +51,8 @@ function MapTile(props) {
 function MapRow(props) {
   return (
     <div className="row">
-      {props.tiles.map(tile => (
-        <MapTile tile={tile} />
+      {props.tiles.map((tile, i) => (
+        <MapTile key={i} tile={tile} />
       ))}
     </div>
   );
@@ -70,8 +70,8 @@ function Map(props) {
         // margin: '10px auto'
       }}
     >
-      {props.tiles.map(row => (
-        <MapRow tiles={row} />
+      {props.tiles.map((row, i) => (
+        <MapRow key={i} tiles={row} />
       ))}
     </div>
   );
