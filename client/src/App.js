@@ -8,10 +8,8 @@ import PrivateRoute from "./auth/PrivateRoute";
 function App() {
   return (
     <div className="App">
-      <Route path="/login" component={Login} />
-
-      {/* Will become a PrivateRoute once authenticated */}
-      <Route exact path="/" component={Game} />
+      <Route exact path="/login" render={props => <Login {...props} />} />
+      <PrivateRoute exact path="/" component={Game} />
     </div>
   );
 }
