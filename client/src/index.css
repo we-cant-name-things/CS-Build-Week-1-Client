@@ -3,6 +3,16 @@
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(115%);
+}
+
 p,
 h1,
 h2,
