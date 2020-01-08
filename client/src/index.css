@@ -1,7 +1,40 @@
+/* Global */
 * {
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(115%);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+body {
+  background-color: #030303;
+  color: #ddd;
+  font-family: "Press Start 2P", cursive;
+}
+
+h3 {
+  margin: 16px 0 24px;
+  color: #666;
+}
+
+/* Player Styles */
 .pixelate {
   image-rendering: pixelated;
 }
@@ -11,20 +44,23 @@
   margin: 0 auto;
 }
 
+.walk {
+  animation: moveSpriteSheet 0.4s steps(4) infinite;
+}
+
 .move_north {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: -120px;
 }
+
 .move_south {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: -180px;
 }
+
 .move_east {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: 0px;
 }
+
 .move_west {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: -60px;
 }
 
@@ -37,50 +73,80 @@
   }
 }
 
-.row {
-  height: 60px;
+/* Stats Styles */
+.game_container {
+  width: 1260px;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+  display: flex;
+}
+
+.stats {
+  width: 50%;
+}
+
+.stat > span {
+  color: dodgerblue;
+}
+
+.stat {
+  margin-bottom: 16px;
+}
+
+/*  Controls Styles */
+.controls {
+  flex: 1;
 }
 
 /* TILES */
+.row {
+  height: 60px;
+}
 
 .tile {
   display: inline-flex;
   image-rendering: pixelated;
   /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
 }
-/* Walkable */
+
+/* ---------- Walkable ---------- */
+/* 0 - grass */
 .grass {
   background-image: url("./assets/walkable/grass.png");
 }
-
-.dirt {
-  background-image: url("./assets/walkable/dirt.png");
-}
-.floor {
-  background-image: url("./assets/walkable/floor.png");
-}
-
+/* 1 - road */
 .road {
   background-image: url("./assets/walkable/concrete.png");
   background-size: cover;
 }
-/* Obstacles */
-.tree {
-  background-image: url("./assets/obstacles/tree.png");
+/* 2 - dirt */
+.dirt {
+  background-image: url("./assets/walkable/dirt.png");
 }
+/* 3 - floor */
+.floor {
+  background-image: url("./assets/walkable/floor.png");
+}
+/* Obstacles */
+/* 4 - water */
 .water {
   background-image: url("./assets/obstacles/water.gif");
   background-size: cover;
 }
-.chest {
-  background-image: url("./assets/obstacles/chest.png");
+/* 5 - tree */
+.tree {
+  background-image: url("./assets/obstacles/tree.png");
 }
+/* 6 - wall */
 .wall {
   background-image: url("./assets/obstacles/wall.png");
 }
+/* 7 - rock */
+/* 8 - fence */
 .fence {
   background-image: url("./assets/obstacles/fence.png");
 }
+/* 9 - store */
 .store {
   background-image: url("./assets/obstacles/store.png");
 }

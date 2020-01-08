@@ -14,7 +14,7 @@ function getTileSprite(type) {
     case 3:
       return "floor";
     case 4:
-      return "grass";
+      return "water";
     case 5:
       return "tree";
     case 6:
@@ -24,13 +24,7 @@ function getTileSprite(type) {
     case 8:
       return "fence";
     case 9:
-      return "counter";
-    case 10:
       return "store";
-    case 11:
-      return "chest";
-    case 12:
-      return "water";
     default:
       return "";
   }
@@ -51,8 +45,8 @@ function MapTile(props) {
 function MapRow(props) {
   return (
     <div className="row">
-      {props.tiles.map(tile => (
-        <MapTile tile={tile} />
+      {props.tiles.map((tile, i) => (
+        <MapTile key={i} tile={tile} />
       ))}
     </div>
   );
@@ -70,8 +64,8 @@ function Map(props) {
         // margin: '10px auto'
       }}
     >
-      {props.tiles.map(row => (
-        <MapRow tiles={row} />
+      {props.tiles.map((row, i) => (
+        <MapRow key={i} tiles={row} />
       ))}
     </div>
   );

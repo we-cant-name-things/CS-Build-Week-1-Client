@@ -20,10 +20,11 @@ export default function handleMovement(player) {
     const oldPos = store.getState().player.position;
     const nextPos = getNewPosition(oldPos, "NORTH");
     console.log("nexPos", nextPos);
-    if (nextPos[1] === 0) {
-      //   console.log("Choose next destination");
-      alert("Choose next destination");
-    }
+    // if (nextPos[1] === 0) {
+    //   //   console.log("Choose next destination");
+    //   return true
+    // }
+    return nextPos[1] === 0;
   }
 
   function getSpriteLocation(direction) {
@@ -67,9 +68,9 @@ export default function handleMovement(player) {
     const y = newPos[1] / SPRITE_SIZE;
     const x = newPos[0] / SPRITE_SIZE;
     const nextTile = tiles[y][x];
-    // 0-4 are walkable (grass, dirt, etc)
-    // 5-9 are obstacles (trees, rocks, etc)
-    return nextTile < 5;
+    // 0-3 are walkable (grass, dirt, etc)
+    // 4-9 are obstacles (trees, rocks, etc)
+    return nextTile < 3;
   }
 
   function dispatchMove(direction, newPos) {
@@ -114,8 +115,13 @@ export default function handleMovement(player) {
         console.log(e.keyCode);
     }
   }
-  window.addEventListener("keydown", e => {
-    handleKeyDown(e);
+
+  document.addEventListener("keydown", e => {
+    // 32 - spacebar
+    if ([32, 37, 38, 39, 40].includes(e.keyCode)) {
+      handleKeyDown(e);
+    }
   });
+
   return player;
 }
