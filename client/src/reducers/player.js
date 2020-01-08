@@ -5,7 +5,8 @@ const intialState = {
   position: [600, 540],
   //   spriteLocation: "-120px",
   spriteLocation: "move_north",
-  direction: "NORTH"
+  direction: "NORTH",
+  topOfMap: false
 };
 
 const player = (state = intialState, action) => {

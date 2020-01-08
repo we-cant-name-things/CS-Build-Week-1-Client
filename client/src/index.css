@@ -41,18 +41,33 @@
   height: 60px;
 }
 
+/* TILES */
+
 .tile {
   display: inline-flex;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  image-rendering: pixelated;
+  /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
+}
+/* Walkable */
+.grass {
+  background-image: url("./assets/walkable/grass.png");
 }
 
+.dirt {
+  background-image: url("./assets/walkable/dirt.png");
+}
+
+.road {
+  background-image: url("./assets/walkable/concrete.png");
+  background-size: cover;
+}
+/* Obstacles */
 .tree {
   background-image: url("./assets/obstacles/tree.png");
 }
-
-.grass {
-  background-color: green;
+.water {
+  background-image: url("./assets/obstacles/water.png");
 }
-.road {
-  background-color: lightgrey;
+.chest {
+  background-image: url("./assets/obstacles/chest.png");
 }

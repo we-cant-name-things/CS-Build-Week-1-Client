@@ -16,6 +16,16 @@ export default function handleMovement(player) {
     }
   }
 
+  function isTopOfMap() {
+    const oldPos = store.getState().player.position;
+    const nextPos = getNewPosition(oldPos, "NORTH");
+    console.log("nexPos", nextPos);
+    if (nextPos[1] === 0) {
+      //   console.log("Choose next destination");
+      alert("Choose next destination");
+    }
+  }
+
   function getSpriteLocation(direction) {
     switch (direction) {
       case "NORTH":
@@ -68,7 +78,8 @@ export default function handleMovement(player) {
       payload: {
         position: newPos,
         direction,
-        spriteLocation: getSpriteLocation(direction)
+        spriteLocation: getSpriteLocation(direction),
+        topOfMap: isTopOfMap()
       }
     });
   }
