@@ -56,6 +56,9 @@
 .dirt {
   background-image: url("./assets/walkable/dirt.png");
 }
+.floor {
+  background-image: url("./assets/walkable/floor.png");
+}
 
 .road {
   background-image: url("./assets/walkable/concrete.png");
@@ -66,8 +69,18 @@
   background-image: url("./assets/obstacles/tree.png");
 }
 .water {
-  background-image: url("./assets/obstacles/water.png");
+  background-image: url("./assets/obstacles/water.gif");
+  background-size: cover;
 }
 .chest {
   background-image: url("./assets/obstacles/chest.png");
+}
+.wall {
+  background-image: url("./assets/obstacles/wall.png");
+}
+.fence {
+  background-image: url("./assets/obstacles/fence.png");
+}
+.store {
+  background-image: url("./assets/obstacles/store.png");
 }

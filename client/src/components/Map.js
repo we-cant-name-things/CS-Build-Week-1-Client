@@ -26,9 +26,7 @@ function getTileSprite(type) {
     case 9:
       return "counter";
     case 10:
-      return "isle";
-    case 10:
-      return "window";
+      return "store";
     case 11:
       return "chest";
     case 12:
