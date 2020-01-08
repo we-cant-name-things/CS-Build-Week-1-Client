@@ -14,7 +14,7 @@ function getTileSprite(type) {
     case 3:
       return "floor";
     case 4:
-      return "grass";
+      return "water";
     case 5:
       return "tree";
     case 6:
@@ -24,13 +24,7 @@ function getTileSprite(type) {
     case 8:
       return "fence";
     case 9:
-      return "counter";
-    case 10:
       return "store";
-    case 11:
-      return "chest";
-    case 12:
-      return "water";
     default:
       return "";
   }

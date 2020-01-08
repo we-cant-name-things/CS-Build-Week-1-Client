@@ -98,39 +98,45 @@ h3 {
   image-rendering: pixelated;
   /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
 }
-/* Walkable */
+
+/* ---------- Walkable ---------- */
+/* 0 - grass */
 .grass {
   background-image: url("./assets/walkable/grass.png");
 }
-
-.dirt {
-  background-image: url("./assets/walkable/dirt.png");
-}
-.floor {
-  background-image: url("./assets/walkable/floor.png");
-}
-
+/* 1 - road */
 .road {
   background-image: url("./assets/walkable/concrete.png");
   background-size: cover;
 }
-/* Obstacles */
-.tree {
-  background-image: url("./assets/obstacles/tree.png");
+/* 2 - dirt */
+.dirt {
+  background-image: url("./assets/walkable/dirt.png");
 }
+/* 3 - floor */
+.floor {
+  background-image: url("./assets/walkable/floor.png");
+}
+/* Obstacles */
+/* 4 - water */
 .water {
   background-image: url("./assets/obstacles/water.gif");
   background-size: cover;
 }
-.chest {
-  background-image: url("./assets/obstacles/chest.png");
+/* 5 - tree */
+.tree {
+  background-image: url("./assets/obstacles/tree.png");
 }
+/* 6 - wall */
 .wall {
   background-image: url("./assets/obstacles/wall.png");
 }
+/* 7 - rock */
+/* 8 - fence */
 .fence {
   background-image: url("./assets/obstacles/fence.png");
 }
+/* 9 - store */
 .store {
   background-image: url("./assets/obstacles/store.png");
 }
