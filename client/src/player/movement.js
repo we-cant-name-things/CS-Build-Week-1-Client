@@ -114,8 +114,13 @@ export default function handleMovement(player) {
         console.log(e.keyCode);
     }
   }
-  window.addEventListener("keydown", e => {
-    handleKeyDown(e);
+
+  document.addEventListener("keydown", e => {
+    // 32 - spacebar
+    if ([32, 37, 38, 39, 40].includes(e.keyCode)) {
+      handleKeyDown(e);
+    }
   });
+
   return player;
 }
