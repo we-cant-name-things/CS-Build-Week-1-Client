@@ -7,7 +7,7 @@ function getTileSprite(type) {
     case 0:
       return "grass";
     case 1:
-      return "door";
+      return "road";
     case 2:
       return "dirt";
     case 3:
@@ -61,7 +61,7 @@ function Map(props) {
   return (
     <div
       style={{
-        width: "1200px",
+        width: "1260px",
         height: "600px",
         backgroundColor: "green"
         // border: '4px solid white',

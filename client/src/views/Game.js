@@ -17,7 +17,7 @@ export default function Game(props) {
     <div
       style={{
         position: "relative",
-        width: "1200px",
+        width: "1260px",
         height: "600px",
         margin: "20px auto"
       }}
