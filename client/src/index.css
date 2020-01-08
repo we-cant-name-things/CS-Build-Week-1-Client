@@ -7,8 +7,25 @@
 }
 
 .character_sprite {
+  position: absolute;
   margin: 0 auto;
-  animation: moveSpriteSheet 1s steps(4) infinite;
+}
+
+.move_north {
+  animation: moveSpriteSheet 0.5s steps(4);
+  bottom: -120px;
+}
+.move_south {
+  animation: moveSpriteSheet 0.5s steps(4);
+  bottom: -180px;
+}
+.move_east {
+  animation: moveSpriteSheet 0.5s steps(4);
+  bottom: 0px;
+}
+.move_west {
+  animation: moveSpriteSheet 0.5s steps(4);
+  bottom: -60px;
 }
 
 @keyframes moveSpriteSheet {
@@ -24,15 +41,46 @@
   height: 60px;
 }
 
+/* TILES */
+
 .tile {
   display: inline-flex;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  image-rendering: pixelated;
+  /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
+}
+/* Walkable */
+.grass {
+  background-image: url("./assets/walkable/grass.png");
 }
 
+.dirt {
+  background-image: url("./assets/walkable/dirt.png");
+}
+.floor {
+  background-image: url("./assets/walkable/floor.png");
+}
+
+.road {
+  background-image: url("./assets/walkable/concrete.png");
+  background-size: cover;
+}
+/* Obstacles */
 .tree {
   background-image: url("./assets/obstacles/tree.png");
 }
-
-.grass {
-  background-color: green;
+.water {
+  background-image: url("./assets/obstacles/water.gif");
+  background-size: cover;
+}
+.chest {
+  background-image: url("./assets/obstacles/chest.png");
+}
+.wall {
+  background-image: url("./assets/obstacles/wall.png");
+}
+.fence {
+  background-image: url("./assets/obstacles/fence.png");
+}
+.store {
+  background-image: url("./assets/obstacles/store.png");
 }

@@ -1,13 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import {SPRITE_SIZE} from "../constants";
+import grass from "../assets/walkable/grass.png";
 
 function getTileSprite(type) {
   switch (type) {
     case 0:
       return "grass";
     case 1:
-      return "door";
+      return "road";
     case 2:
       return "dirt";
     case 3:
@@ -25,11 +26,11 @@ function getTileSprite(type) {
     case 9:
       return "counter";
     case 10:
-      return "isle";
-    case 10:
-      return "window";
-    case 10:
+      return "store";
+    case 11:
       return "chest";
+    case 12:
+      return "water";
     default:
       return "";
   }
@@ -61,9 +62,10 @@ function Map(props) {
   return (
     <div
       style={{
-        width: "1200px",
+        width: "1260px",
         height: "600px",
-        backgroundColor: "green"
+        backgroundImage: `url('${grass}')`
+        // backgroundColor: "green"
         // border: '4px solid white',
         // margin: '10px auto'
       }}

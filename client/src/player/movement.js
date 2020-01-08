@@ -16,6 +16,41 @@ export default function handleMovement(player) {
     }
   }
 
+  function isTopOfMap() {
+    const oldPos = store.getState().player.position;
+    const nextPos = getNewPosition(oldPos, "NORTH");
+    console.log("nexPos", nextPos);
+    if (nextPos[1] === 0) {
+      //   console.log("Choose next destination");
+      alert("Choose next destination");
+    }
+  }
+
+  function getSpriteLocation(direction) {
+    switch (direction) {
+      case "NORTH":
+        return "move_north";
+      case "SOUTH":
+        return "move_south";
+      case "EAST":
+        return "move_east";
+      case "WEST":
+        return "move_west";
+    }
+  }
+  //   function getSpriteLocation(direction) {
+  //     switch (direction) {
+  //       case "NORTH":
+  //         return "-120px";
+  //       case "SOUTH":
+  //         return "-180px";
+  //       case "EAST":
+  //         return "0px";
+  //       case "WEST":
+  //         return "-60px";
+  //     }
+  //   }
+
   function observeBoundaries(oldPos, newPos) {
     // checks if next tile is a map boundary
     return (
@@ -37,24 +72,29 @@ export default function handleMovement(player) {
     return nextTile < 5;
   }
 
-  function dispatchMove(newPos) {
+  function dispatchMove(direction, newPos) {
     store.dispatch({
       type: "MOVE_PLAYER",
       payload: {
-        position: newPos
+        position: newPos,
+        direction,
+        spriteLocation: getSpriteLocation(direction),
+        topOfMap: isTopOfMap()
       }
     });
   }
 
   function attemptMove(direction) {
+    // compares current position to surrounding tiles
     const oldPos = store.getState().player.position;
     const newPos = getNewPosition(oldPos, direction);
 
+    // if next tile is walkable, allow player to move
     if (
       observeBoundaries(oldPos, newPos) &&
       observeImpassable(oldPos, newPos)
     ) {
-      dispatchMove(newPos);
+      dispatchMove(direction, newPos);
     }
   }
 
