@@ -11,20 +11,23 @@
   margin: 0 auto;
 }
 
+.walk {
+  animation: moveSpriteSheet 0.4s steps(4) infinite;
+}
+
 .move_north {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: -120px;
 }
+
 .move_south {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: -180px;
 }
+
 .move_east {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: 0px;
 }
+
 .move_west {
-  animation: moveSpriteSheet 0.5s steps(4);
   bottom: -60px;
 }
 
