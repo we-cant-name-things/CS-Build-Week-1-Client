@@ -14,8 +14,12 @@ function Supplies({location, food, water, redeemed}) {
         <p>No items here.</p>
       ) : (
         <>
-          <p>{food} food</p>
-          <p>{water} water</p>
+          <p>
+            <span style={{color: "#39ff14 "}}>{food}</span> food
+          </p>
+          <p>
+            <span style={{color: "#39ff14 "}}>{water}</span> water
+          </p>
         </>
       )}
     </div>

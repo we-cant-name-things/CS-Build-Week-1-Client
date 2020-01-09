@@ -4,7 +4,10 @@ import {
   GET_PLAYER_SUCCESS,
   GET_PLAYER_FAILURE,
   SET_NEWGAME,
-  PICKUP_SUPPLIES
+  PICKUP_SUPPLIES,
+  NEXT_DESTINATION,
+  NEXT_DESTINATION_SUCCESS,
+  NEXT_DESTINATION_FAIL
 } from "./types";
 
 /* Player actions */
@@ -38,4 +41,19 @@ export const pickupSupplies = (food, water) => dispatch => {
   //     });
   //   };
   dispatch({type: PICKUP_SUPPLIES, payload: {food, water}});
+};
+
+export const moveToNextDestination = currentPlayerState => dispatch => {
+  console.log("NEXT_DESTINATION:", destination);
+  const nextCity = axios.put(
+    "https://we-cant-name-things.herokuapp.com/api/move/",
+    currentPlayerState
+  );
+  return function(dispatch) {
+    nextCity
+      .then(res =>
+        dispatch({type: NEXT_DESTINATION_SUCCESS, payload: res.data})
+      )
+      .catch(err => dispatch({type: NEXT_DESTINATION_FAIL, payload: err}));
+  };
 };

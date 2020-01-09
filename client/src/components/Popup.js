@@ -57,13 +57,13 @@ const Popup = ({player}) => {
         {player.left && (
           <OptionStyles>
             <button>{player.left}</button>
-            {` Food -${cost.food}, Water -${cost.water}`}
+            {/* {` Food -${cost.food}, Water -${cost.water}`} */}
           </OptionStyles>
         )}
         {player.right && (
           <OptionStyles>
             <button>{player.right}</button>
-            {` Food -${cost.food}, Water -${cost.water}`}
+            {/* {` Food -${cost.food}, Water -${cost.water}`} */}
           </OptionStyles>
         )}
         <p style={{color: "red"}}>Walk down to stay here.</p>
