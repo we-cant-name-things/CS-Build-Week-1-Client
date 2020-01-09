@@ -44,9 +44,10 @@ const player = (state = intialState, action) => {
       const {food, water} = action.payload;
       return {...state, food: state.food + food, water: state.water + water};
     case NEXT_DESTINATION:
-      return {...state, isFetching: true};
+      return {...state, isFetching: true, topOfMap: false};
     case NEXT_DESTINATION_SUCCESS:
-      return {...state, ...action.payload};
+      console.log("NEXT_DESTINATION_SUCCESS");
+      return {...state, ...action.payload, position: [600, 540]};
     case NEXT_DESTINATION_FAIL:
       return {...state, error: action.payload};
     default:

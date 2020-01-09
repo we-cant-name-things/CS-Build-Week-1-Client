@@ -11,10 +11,10 @@ import {
 } from "./types";
 
 /* Player actions */
-export const getPlayer = email => {
+export const getPlayer = () => {
   const player = axios.post(
     "https://we-cant-name-things.herokuapp.com/api/player/",
-    {email}
+    {email: "seanwu20@gmail.com"}
   );
   return function(dispatch) {
     dispatch({type: GET_PLAYER});
@@ -43,17 +43,20 @@ export const pickupSupplies = (food, water) => dispatch => {
   dispatch({type: PICKUP_SUPPLIES, payload: {food, water}});
 };
 
-export const moveToNextDestination = currentPlayerState => dispatch => {
-  console.log("NEXT_DESTINATION:", destination);
+export const moveToNextDestination = (e, currentPlayerState) => {
+  //   e.preventDefault();
+  console.log("NEXT_DESTINATION:", currentPlayerState);
   const nextCity = axios.put(
     "https://we-cant-name-things.herokuapp.com/api/move/",
-    currentPlayerState
+    {...currentPlayerState}
   );
   return function(dispatch) {
+    dispatch({type: NEXT_DESTINATION});
     nextCity
-      .then(res =>
-        dispatch({type: NEXT_DESTINATION_SUCCESS, payload: res.data})
-      )
+      .then(res => {
+        console.log(res);
+        return dispatch({type: NEXT_DESTINATION_SUCCESS, payload: res.data});
+      })
       .catch(err => dispatch({type: NEXT_DESTINATION_FAIL, payload: err}));
   };
 };
