@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Route exact path="/login" render={props => <Login {...props} />} />
-      <PrivateRoute exact path="/" component={Game} />
+      <Route exact path="/" component={Game} />
     </div>
   );
 }
