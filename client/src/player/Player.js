@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect, useRef} from "react";
+import React, {useLayoutEffect, useRef} from "react";
 import character from "../assets/Characters/character.png";
 import {connect} from "react-redux";
 import {store} from "../store";

@@ -7,6 +7,10 @@ button {
   border: none;
   font-family: "Press Start 2P", cursive;
   cursor: pointer;
+  height: 40px;
+  padding: 8px 16px;
+  min-width: 100px;
+  border-radius: 2px;
 }
 
 button:hover {
@@ -147,6 +151,7 @@ h3 {
   background-image: url("./assets/obstacles/fence.png");
 }
 /* 9 - store */
-.store {
+.supplies1,
+.supplies2 {
   background-image: url("./assets/obstacles/store.png");
 }

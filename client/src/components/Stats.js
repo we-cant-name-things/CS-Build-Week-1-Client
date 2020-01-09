@@ -1,35 +1,35 @@
 import React from "react";
 import player from "../reducers/player";
+import {connect} from "react-redux";
 
-export default function Stats() {
-  const playerInfo = {
-    name: "gsamaniego41@gmail.com",
-    food: 5,
-    water: 3,
-    current_location: {
-      city: "Miami",
-      state: "FL"
-    }
-  };
-  console.log(playerInfo.name);
+const Stats = ({player}) => {
+  console.log(player.name);
   return (
     <div className="stats">
       <h3>Stats</h3>
       <div className="stat">
-        <span className="stat__title">Name:</span>{" "}
-        {playerInfo.name.substring(0, playerInfo.name.lastIndexOf("@"))}
+        <span className="stat__title">🧑 Name:</span>{" "}
+        {player.name.substring(0, player.name.lastIndexOf("@"))}
       </div>
       <div className="stat">
-        <span className="stat__title">Location:</span>{" "}
-        {`${playerInfo.current_location.city}, ${playerInfo.current_location.state}`}
+        <span className="stat__title">📍 Location:</span>{" "}
+        {`${player.city}, ${player.state}`}
       </div>
       <div className="stat">
-        <span className="stat__title">Food: </span>
-        {playerInfo.food}
+        <span className="stat__title">🍞 Food: </span>
+        {player.food}
       </div>
       <div className="stat">
-        <span className="stat__title">Water:</span> {playerInfo.water}
+        <span className="stat__title">🥛 Water:</span> {player.water}
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
+
+export default connect(mapStateToProps)(Stats);

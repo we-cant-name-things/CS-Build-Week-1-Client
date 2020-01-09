@@ -50,6 +50,8 @@ const Popup = props => {
       send state to backend
       [ ] GET request next destination
       [ ] Redux action to handle axios POST
+
+      Cost: random int between -1 and -4
       */}
       <div>
         <OptionStyles>
@@ -60,9 +62,7 @@ const Popup = props => {
           <button>{nextDestination.option2}</button>
           {` Food -${cost.food}, Water -${cost.water}`}
         </OptionStyles>
-        <button style={{background: "none", color: "red"}}>
-          Cancel, I'll stay here.
-        </button>
+        <p style={{color: "red"}}>Walk down to stay here.</p>
       </div>
     </PopupStyles>
   );
