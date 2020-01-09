@@ -2,12 +2,14 @@ import React, {useEffect} from "react";
 import {tiles} from "../data/maps/1";
 import {store} from "../store";
 import {connect} from "react-redux";
+import {getPlayer} from "../actions";
 
 import Player from "../player/Player";
 import Map from "../components/Map";
 import Stats from "../components/Stats";
 import Controls from "../components/Controls";
 import Popup from "../components/Popup";
+import IntroText from "../components/IntroText";
 
 const Game = props => {
   useEffect(() => {
@@ -19,7 +21,12 @@ const Game = props => {
     });
   }, []);
 
+  useEffect(() => {
+    props.getPlayer();
+  }, []);
+
   console.log(props.player.topOfMap);
+  // console.log(props.game.isNewGame);
   return (
     <>
       <div
@@ -30,6 +37,7 @@ const Game = props => {
           margin: "20px auto"
         }}
       >
+        {props.game.isNewGame ? <IntroText /> : null}
         <Map />
         <Player />
         {props.player.topOfMap ? <Popup /> : null}
@@ -48,4 +56,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps, {getPlayer})(Game);
