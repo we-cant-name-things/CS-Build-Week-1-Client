@@ -62,9 +62,7 @@ const Popup = props => {
           <button>{nextDestination.option2}</button>
           {` Food -${cost.food}, Water -${cost.water}`}
         </OptionStyles>
-        <button style={{background: "none", color: "red"}}>
-          Cancel, I'll stay here.
-        </button>
+        <p style={{color: "red"}}>Walk down to stay here.</p>
       </div>
     </PopupStyles>
   );

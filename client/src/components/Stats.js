@@ -17,10 +17,10 @@ const Stats = ({player}) => {
       </div>
       <div className="stat">
         <span className="stat__title">🍞 Food: </span>
-        {player.food_available}
+        {player.food}
       </div>
       <div className="stat">
-        <span className="stat__title">🥛 Water:</span> {player.water_available}
+        <span className="stat__title">🥛 Water:</span> {player.water}
       </div>
     </div>
   );

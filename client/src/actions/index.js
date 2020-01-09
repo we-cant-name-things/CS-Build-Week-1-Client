@@ -9,8 +9,8 @@ import {
 /* Player actions */
 export const getPlayer = () => {
   const player = axios.get(
-    "https://we-cant-name-things.herokuapp.com/api/player/"
-    // {params: {email: "seanwu20@gmail.com"}}
+    "https://we-cant-name-things.herokuapp.com/api/player/",
+    {email: "seanwu20@gmail.com"}
   );
   return function(dispatch) {
     dispatch({type: GET_PLAYER});

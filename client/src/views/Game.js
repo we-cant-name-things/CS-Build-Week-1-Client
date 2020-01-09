@@ -25,8 +25,8 @@ const Game = props => {
     props.getPlayer();
   }, []);
 
-  // console.log(props.player.topOfMap);
-  console.log(props.game.isNewGame);
+  console.log(props.player.topOfMap);
+  // console.log(props.game.isNewGame);
   return (
     <>
       <div

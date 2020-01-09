@@ -151,6 +151,7 @@ h3 {
   background-image: url("./assets/obstacles/fence.png");
 }
 /* 9 - store */
-.store {
+.supplies1,
+.supplies2 {
   background-image: url("./assets/obstacles/store.png");
 }
