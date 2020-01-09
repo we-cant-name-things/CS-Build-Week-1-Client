@@ -5,9 +5,35 @@ import flag from '../assets/background/canadian_flag.png'
 import zombieHand from '../assets/background/zombie_hand.png'
 import character from '../assets/Characters/character_single.png'
 import '../App.css'
+import styled from "styled-components";
+
+const PopupStyles = styled.form`
+  font-size: 14px;
+  padding: 16px 12px;
+  background: rgba(3, 3, 3, 0.85);
+  border: 3px solid #888;
+
+  p {
+    margin-bottom: 24px;
+  }
+`;
+
+const OptionStyles = styled.div`
+  margin-top: 5px;
+
+  button {
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: #6f1eff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+`;
 
 export default function Login({ history }) {
     const [creds, setCreds] = useState({email: '', password: ''})
+    const [newUser, setNewUser] = useState(false)
 
     const changeHandler = e => {
         setCreds({...creds, [e.target.name]: e.target.value})
@@ -32,12 +58,18 @@ export default function Login({ history }) {
         <>
             <div style={{ border: '4px solid black', height: '98vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', backgroundImage: `url("${background}")`, backgroundSize: 'cover'}}>
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-                    <h1 style={{ color: 'red'}}>GAME_TITLE_HERE</h1>
-                    <form onSubmit={login} style={{ display: 'flex', flexDirection: 'column', width: '250px', alignItems: 'center'}}>
+                    <PopupStyles onSubmit={login} style={{ display: 'flex', flexDirection: 'column', width: '250px', alignItems: 'center'}}>
+                    <p style={{ color: 'red'}}>GAME_TITLE_HERE</p>
                         <input placeholder='E-mail' onChange={changeHandler} name='email' value={creds.email} style={{ marginBottom: '10px'}} />
                         <input placeholder='Password' type='password' onChange={changeHandler} name='password' value={creds.password} style={{ marginBottom: '10px'}} />
-                        <button className='btn' >Login</button>
-                    </form>
+                        {newUser ? <OptionStyles><button>Create</button></OptionStyles>: <button className='btn' >Login</button>}
+                    <OptionStyles>
+                        <p style={{ marginBottom: '5px'}}>------or------</p>
+                        <div style={{ display: 'flex', justifyContent: 'center'}}>
+                            <h5 onClick={()=> setNewUser(!newUser)} className='create_account'>{newUser ? <div className='login'>Login</div> : "Create Account"}</h5>
+                        </div>
+                    </OptionStyles>
+                    </PopupStyles>
                 </div>
             
             <img src={character} style={{ height: '75px', position: 'absolute', top: '88%', left: '37%'}} />

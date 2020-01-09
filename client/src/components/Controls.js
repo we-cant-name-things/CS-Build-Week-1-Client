@@ -5,7 +5,7 @@ export default function Controls() {
     <div className="controls">
       <h3>Controls</h3>
       <div className="stat">
-        <span>Move:</span> &#8593; &#8595; &#8592; &#8593;
+        <span>Move:</span> &#8593; &#8595; &#8592; &#8594;
       </div>
       <div className="stat">
         <span>Interact:</span> Spacebar
