@@ -1,6 +1,10 @@
 .btn {
-    width: 75px;
-    height: 25px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 111px;
+    height: 40px;
+    padding: 8px 16px;
+    border-radius: 4px;
     color: red;
     background-color: white;
     border: 1px solid grey;
@@ -12,4 +16,24 @@
 .btn:hover {
     color: white;
     background: red;
+}
+
+.create_account {
+    padding-top: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 0;
+}
+
+.create_account:hover {
+    color: #6f1eff;
+}
+
+.login{
+    color: white;
+    transition: 0.3s;
+}
+
+.login:hover {
+    color: red;
 }
