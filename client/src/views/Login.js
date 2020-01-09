@@ -64,7 +64,7 @@ export default function Login({ history }) {
                         <input placeholder='Password' type='password' onChange={changeHandler} name='password' value={creds.password} style={{ marginBottom: '10px'}} />
                         {newUser ? <OptionStyles><button>Create</button></OptionStyles>: <button className='btn' >Login</button>}
                     <OptionStyles>
-                        <p style={{ marginBottom: '5px'}}>-------or------</p>
+                        <p style={{ marginBottom: '5px'}}>------or------</p>
                         <div style={{ display: 'flex', justifyContent: 'center'}}>
                             <h5 onClick={()=> setNewUser(!newUser)} className='create_account'>{newUser ? "Login" : "Create Account"}</h5>
                         </div>
