@@ -8,7 +8,7 @@ import {
 
 /* Player actions */
 export const getPlayer = () => {
-  const player = axios.get(
+  const player = axios.post(
     "https://we-cant-name-things.herokuapp.com/api/player/",
     {email: "seanwu20@gmail.com"}
   );

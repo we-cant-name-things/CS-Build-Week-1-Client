@@ -67,6 +67,7 @@ function MapTile({player, tile}) {
       player.position[1] === 420 ? (
         <SuppliesPopup>
           <Supplies
+            location={player.location}
             food={player.food_available}
             water={player.water_available}
           />
@@ -77,6 +78,7 @@ function MapTile({player, tile}) {
       player.position[1] === 180 ? (
         <SuppliesPopup>
           <Supplies
+            location={player.location_2}
             food={player.food_available2}
             water={player.water_available2}
           />

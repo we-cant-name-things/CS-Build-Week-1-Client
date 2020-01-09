@@ -40,8 +40,8 @@ const nextDestination = {
   option2: "San Francisco"
 };
 
-const Popup = props => {
-  console.log(props.player);
+const Popup = ({player}) => {
+  // console.log(props.player);
   return (
     <PopupStyles>
       <p>Choose your next destination:</p>
@@ -54,14 +54,18 @@ const Popup = props => {
       Cost: random int between -1 and -4
       */}
       <div>
-        <OptionStyles>
-          <button>{nextDestination.option1}</button>
-          {` Food -${cost.food}, Water -${cost.water}`}
-        </OptionStyles>
-        <OptionStyles>
-          <button>{nextDestination.option2}</button>
-          {` Food -${cost.food}, Water -${cost.water}`}
-        </OptionStyles>
+        {player.left && (
+          <OptionStyles>
+            <button>{player.left}</button>
+            {` Food -${cost.food}, Water -${cost.water}`}
+          </OptionStyles>
+        )}
+        {player.right && (
+          <OptionStyles>
+            <button>{player.right}</button>
+            {` Food -${cost.food}, Water -${cost.water}`}
+          </OptionStyles>
+        )}
         <p style={{color: "red"}}>Walk down to stay here.</p>
       </div>
     </PopupStyles>
