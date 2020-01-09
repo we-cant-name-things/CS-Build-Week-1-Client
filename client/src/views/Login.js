@@ -7,7 +7,7 @@ import character from '../assets/Characters/character_single.png'
 import '../App.css'
 import styled from "styled-components";
 
-const PopupStyles = styled.div`
+const PopupStyles = styled.form`
   font-size: 14px;
   padding: 16px 12px;
   background: rgba(3, 3, 3, 0.85);
