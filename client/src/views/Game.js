@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import {tiles} from "../data/maps/1";
 import {store} from "../store";
 import {connect} from "react-redux";
+import {getPlayer} from "../actions";
 
 import Player from "../player/Player";
 import Map from "../components/Map";
@@ -18,6 +19,10 @@ const Game = props => {
         tiles
       }
     });
+  }, []);
+
+  useEffect(() => {
+    props.getPlayer();
   }, []);
 
   // console.log(props.player.topOfMap);
@@ -51,4 +56,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps, {getPlayer})(Game);

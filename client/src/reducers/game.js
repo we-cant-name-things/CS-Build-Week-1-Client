@@ -6,7 +6,7 @@ const intialState = {
 
 const game = (state = intialState, action) => {
   switch (action.type) {
-    case "SET_NEWGAME":
+    case SET_NEWGAME:
       return {
         ...action.payload
       };

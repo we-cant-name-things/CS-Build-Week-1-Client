@@ -6,7 +6,7 @@ const intialState = {
 
 const map = (state = intialState, action) => {
   switch (action.type) {
-    case "ADD_TILES":
+    case ADD_TILES:
       return {
         ...action.payload
       };
