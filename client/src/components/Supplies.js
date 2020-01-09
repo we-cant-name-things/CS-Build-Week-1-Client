@@ -1,6 +1,6 @@
 import React from "react";
 
-function Supplies({location, food, water}) {
+function Supplies({location, food, water, redeemed}) {
   return (
     <div
       style={{
@@ -10,7 +10,7 @@ function Supplies({location, food, water}) {
       <h3>
         <span className="stat">{location}</span> - You found:
       </h3>
-      {food === 0 && water === 0 ? (
+      {redeemed ? (
         <p>No items here.</p>
       ) : (
         <>

@@ -3,14 +3,15 @@ import {
   GET_PLAYER,
   GET_PLAYER_SUCCESS,
   GET_PLAYER_FAILURE,
-  SET_NEWGAME
+  SET_NEWGAME,
+  PICKUP_SUPPLIES
 } from "./types";
 
 /* Player actions */
-export const getPlayer = () => {
+export const getPlayer = email => {
   const player = axios.post(
     "https://we-cant-name-things.herokuapp.com/api/player/",
-    {email: "seanwu20@gmail.com"}
+    {email}
   );
   return function(dispatch) {
     dispatch({type: GET_PLAYER});
@@ -26,4 +27,15 @@ export const isNewGame = bool => {
     type: SET_NEWGAME,
     payload: bool
   };
+};
+
+export const pickupSupplies = (food, water) => dispatch => {
+  console.log(`PICKED UP ${food} food, ${water} water`);
+  //   return function(dispatch) {
+  //     dispatch({
+  //       type: PICKUP_SUPPLIES,
+  //       payload: {food, water}
+  //     });
+  //   };
+  dispatch({type: PICKUP_SUPPLIES, payload: {food, water}});
 };
