@@ -1,6 +1,7 @@
-import React, {useRef} from "react";
+import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
 import styled from "styled-components";
+import {pickupSupplies} from "../actions";
 import {SPRITE_SIZE} from "../constants";
 import grass from "../assets/walkable/grass.png";
 import Supplies from "./Supplies";
@@ -41,7 +42,9 @@ function getTileSprite(type) {
   }
 }
 
-function MapTile({player, tile}) {
+function MapTile(props) {
+  const {player, tile, pickupSupplies} = props;
+  const [redeemed, setRedeem] = useState(false);
   // if getTileSprite(props.tile) === supplies1
   // && player position around to supplies
   // add locations food_available and water_available
@@ -51,14 +54,31 @@ function MapTile({player, tile}) {
   // trigger popup, positioned absolutely above tile
   // ok to close popup
   //   console.log(props.tile);
-
-  //   console.log(
-  //     getTileSprite(props.tile) === "supplies1" ||
-  //       getTileSprite(props.tile) === "supplies2"
-  //       ? "supplies"
-  //       : null
-  //   );
-  //   console.log("map tile:", player.position);
+  useEffect(() => {
+    if (
+      !redeemed &&
+      getTileSprite(tile) === "supplies1" &&
+      player.position[0] === 300 &&
+      player.position[1] === 420
+    ) {
+      //   console.log("pick up supplies");
+      console.log("redeemed", redeemed);
+      pickupSupplies(player.food_available, player.water_available);
+      //   setRedeem(true);
+      //   console.log(pickupSupplies);
+    }
+    if (
+      !redeemed &&
+      getTileSprite(tile) === "supplies2" &&
+      player.position[0] === 840 &&
+      player.position[1] === 180
+    ) {
+      //   console.log("pick up supplies");
+      pickupSupplies(player.food_available2, player.water_available2);
+      //   setRedeem(true);
+    }
+    console.log("FIRED");
+  }, [player.position]);
 
   return (
     <>
@@ -67,6 +87,8 @@ function MapTile({player, tile}) {
       player.position[1] === 420 ? (
         <SuppliesPopup>
           <Supplies
+            redeemed={redeemed}
+            location={player.location}
             food={player.food_available}
             water={player.water_available}
           />
@@ -77,30 +99,19 @@ function MapTile({player, tile}) {
       player.position[1] === 180 ? (
         <SuppliesPopup>
           <Supplies
+            redeemed={redeemed}
+            location={player.location_2}
             food={player.food_available2}
             water={player.water_available2}
           />
         </SuppliesPopup>
       ) : null}
-      {/* {(getTileSprite(tile) === "supplies1" &&
-        player.position[0] === 300 &&
-        player.position[1] === 420) ||
-      (getTileSprite(tile) === "supplies2" &&
-        player.position[0] === 840 &&
-        player.position[1] === 180) ? (
-        <SuppliesPopup>
-          <Supplies
-            food={player.food_available}
-            water={player.water_available}
-          />
-        </SuppliesPopup>
-      ) : null} */}
+
       <div
         className={`tile ${getTileSprite(tile)}`}
         style={{
           height: SPRITE_SIZE,
           width: SPRITE_SIZE
-          //   position: "absolute"
         }}
       ></div>
     </>
@@ -108,12 +119,15 @@ function MapTile({player, tile}) {
 }
 
 function MapRow(props) {
-  //   console.log("map row", props);
-  //   const {tiles} = props.map;
   return (
     <div className="row">
       {props.tiles.map((tile, i) => (
-        <MapTile key={i} tile={tile} player={props.player} />
+        <MapTile
+          key={i}
+          tile={tile}
+          player={props.player}
+          pickupSupplies={props.pickupSupplies}
+        />
       ))}
     </div>
   );
@@ -128,27 +142,24 @@ function Map(props) {
         width: "1260px",
         height: "600px",
         backgroundImage: `url('${grass}')`
-        // backgroundColor: "green"
-        // border: '4px solid white',
-        // margin: '10px auto'
       }}
     >
       {tiles.map((row, i) => (
-        <MapRow key={i} tiles={row} player={props.player} />
+        <MapRow
+          key={i}
+          tiles={row}
+          player={props.player}
+          pickupSupplies={props.pickupSupplies}
+        />
       ))}
     </div>
   );
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     ...state
   };
-  //   return {
-  //     player: state.player,
-  //     tiles: state.map.tiles
-  //   };
 };
 
-export default connect(mapStateToProps)(Map);
+export default connect(mapStateToProps, {pickupSupplies})(Map);

@@ -22,7 +22,7 @@ const Game = props => {
   }, []);
 
   useEffect(() => {
-    props.getPlayer();
+    props.getPlayer(props.player.email);
   }, []);
 
   console.log(props.player.topOfMap);
