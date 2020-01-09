@@ -26,5 +26,14 @@
 }
 
 .create_account:hover {
+    color: #6f1eff;
+}
+
+.login{
+    color: white;
+    transition: 0.3s;
+}
+
+.login:hover {
     color: red;
 }

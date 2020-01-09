@@ -66,7 +66,7 @@ export default function Login({ history }) {
                     <OptionStyles>
                         <p style={{ marginBottom: '5px'}}>------or------</p>
                         <div style={{ display: 'flex', justifyContent: 'center'}}>
-                            <h5 onClick={()=> setNewUser(!newUser)} className='create_account'>{newUser ? "Login" : "Create Account"}</h5>
+                            <h5 onClick={()=> setNewUser(!newUser)} className='create_account'>{newUser ? <div className='login'>Login</div> : "Create Account"}</h5>
                         </div>
                     </OptionStyles>
                     </PopupStyles>
