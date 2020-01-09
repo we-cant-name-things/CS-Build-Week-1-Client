@@ -7,6 +7,10 @@ button {
   border: none;
   font-family: "Press Start 2P", cursive;
   cursor: pointer;
+  height: 40px;
+  padding: 8px 16px;
+  min-width: 100px;
+  border-radius: 2px;
 }
 
 button:hover {

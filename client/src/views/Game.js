@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {tiles} from "../data/maps/1";
 import {store} from "../store";
 import {connect} from "react-redux";
@@ -8,6 +8,7 @@ import Map from "../components/Map";
 import Stats from "../components/Stats";
 import Controls from "../components/Controls";
 import Popup from "../components/Popup";
+import IntroText from "../components/IntroText";
 
 const Game = props => {
   useEffect(() => {
@@ -19,7 +20,8 @@ const Game = props => {
     });
   }, []);
 
-  console.log(props.player.topOfMap);
+  // console.log(props.player.topOfMap);
+  console.log(props.game.isNewGame);
   return (
     <>
       <div
@@ -30,6 +32,7 @@ const Game = props => {
           margin: "20px auto"
         }}
       >
+        {props.game.isNewGame ? <IntroText /> : null}
         <Map />
         <Player />
         {props.player.topOfMap ? <Popup /> : null}

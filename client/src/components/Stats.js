@@ -16,19 +16,19 @@ export default function Stats() {
     <div className="stats">
       <h3>Stats</h3>
       <div className="stat">
-        <span className="stat__title">Name:</span>{" "}
+        <span className="stat__title">🧑 Name:</span>{" "}
         {playerInfo.name.substring(0, playerInfo.name.lastIndexOf("@"))}
       </div>
       <div className="stat">
-        <span className="stat__title">Location:</span>{" "}
+        <span className="stat__title">📍 Location:</span>{" "}
         {`${playerInfo.current_location.city}, ${playerInfo.current_location.state}`}
       </div>
       <div className="stat">
-        <span className="stat__title">Food: </span>
+        <span className="stat__title">🍞 Food: </span>
         {playerInfo.food}
       </div>
       <div className="stat">
-        <span className="stat__title">Water:</span> {playerInfo.water}
+        <span className="stat__title">🥛 Water:</span> {playerInfo.water}
       </div>
     </div>
   );
