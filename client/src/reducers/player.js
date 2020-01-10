@@ -10,7 +10,7 @@ import {
 } from "../actions/types.js";
 
 const intialState = {
-  email: "gsamaniego41@gmail.com",
+  email: localStorage.getItem('game_email'),
   position: [600, 540],
   spriteLocation: "move_north",
   direction: "NORTH",
