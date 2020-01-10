@@ -50,7 +50,7 @@ export default function Login({ history }) {
         //         history.push('/')
         //     })
         //     .catch(err => console.log(err))
-        localStorage.setItem('token', "token_here")
+        localStorage.setItem('game_token', "token_here")
         history.push('/')
         }
     
