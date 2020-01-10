@@ -69,6 +69,8 @@ const Popup = props => {
               onClick={e =>
                 props.moveToNextDestination(e, {
                   ...reqBody,
+                  food: props.player.food - 5,
+                  water: props.player.water - 6,
                   new_city: props.player.left
                 })
               }

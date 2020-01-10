@@ -14,7 +14,7 @@ import {
 export const getPlayer = () => {
   const player = axios.post(
     "https://we-cant-name-things.herokuapp.com/api/player/",
-    {email: "seanwu20@gmail.com"}
+    {email: "gkdarcy93@gmail.com"}
   );
   return function(dispatch) {
     dispatch({type: GET_PLAYER});
