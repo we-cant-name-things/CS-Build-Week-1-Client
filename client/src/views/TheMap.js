@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Tree from 'react-d3-tree';
 import IntroText from '../components/IntroText';
 import axios from "axios";
+import '../App.css'
 
 
 // axios call to /api/map 
@@ -38,21 +39,27 @@ const treeTest = [
     ],
   },
 ];
-
+ 
 function TheMap(props) {
   const [myTreeData, setmyTreeData] = useState(treeTest);
   useEffect(() => {
-  axios.get('http://localhost:8000/api/map/')
+  axios.get('https://we-cant-name-things.herokuapp.com/api/map/')
  .then(function (response) {
    setmyTreeData(response.data)
-   console.log(response.data);
+   console.log("treeDataRes",response.data);
  })
 .catch(function (error) {
    console.log(error);
 });
   }, [])
+
+  const mapToGame = e => {
+    e.preventDefault()
+    props.history.push('/')
+  }
   return(
     <div id="treeWrapper" style={{width: '100%', height: '90em', 'background': 'white'}}>
+          <button onClick={mapToGame} className={'map_btn'}>Return to Game</button>
           <Tree data={myTreeData} orientation={'vertical'} translate={{x: 400, y: 200} } initialDepth={1} separation={{siblings: 2, nonSiblings: 2.2}}/>
     </div>
   )

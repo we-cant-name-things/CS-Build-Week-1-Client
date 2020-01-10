@@ -37,3 +37,21 @@
 .login:hover {
     color: red;
 }
+
+.logout_btn{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.map_btn{
+    position: relative;
+    top: 150px;
+    left: 400px;
+    background-color: dodgerblue;
+    color: white;
+}

@@ -10,6 +10,7 @@ import Stats from "../components/Stats";
 import Controls from "../components/Controls";
 import Popup from "../components/Popup";
 import IntroText from "../components/IntroText";
+import Menu from '../components/Menu'
 
 
 const Game = props => {
@@ -49,7 +50,7 @@ const Game = props => {
       <div className="game_container">
         <Stats />
         <Controls />
-
+        <Menu history={props.history} />
       </div>
     </>
   );
