@@ -53,7 +53,7 @@ export default function Login({ history }) {
         localStorage.setItem('token', "token_here")
         history.push('/')
         }
-
+    
     return (
         <>
             <div style={{ border: '4px solid black', height: '98vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', backgroundImage: `url("${background}")`, backgroundSize: 'cover'}}>
