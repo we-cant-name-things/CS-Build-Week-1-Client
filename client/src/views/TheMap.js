@@ -53,7 +53,7 @@ function TheMap(props) {
   }, [])
   return(
     <div id="treeWrapper" style={{width: '100%', height: '90em', 'background': 'white'}}>
-          <Tree data={myTreeData} orientation={'vertical'} translate={{x: 400, y: 200} } separation={{siblings: 2}}/>
+          <Tree data={myTreeData} orientation={'vertical'} translate={{x: 400, y: 200} } initialDepth={1} separation={{siblings: 2, nonSiblings: 2.2}}/>
     </div>
   )
 }
