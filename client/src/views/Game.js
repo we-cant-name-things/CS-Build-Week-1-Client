@@ -43,6 +43,8 @@ const Game = props => {
         {props.game.isNewGame && props.player.city === "Miami" ? (
           <IntroText />
         ) : null}
+        {props.player.water <= 0 || props.player.food <= 0 ? <IntroText dead /> : null}
+        
         <Map />
         <Player />
         {props.player.topOfMap ? <Popup /> : null}

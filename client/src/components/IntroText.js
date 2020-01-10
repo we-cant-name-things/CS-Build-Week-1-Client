@@ -20,14 +20,22 @@ const IntroTextStyles = styled.div`
 `;
  
 const IntroText = props => {
+  if (props.dead){
+    return (
+      <IntroTextStyles>
+        <h3>GAME OVER</h3>
+        <p>
+          You Died
+        </p>
+        <button onClick={() => props.isNewGame(false)}>OK</button>
+      </IntroTextStyles>
+    );
+  }
   return (
     <IntroTextStyles>
       <h3>Intro</h3>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod
-        rerum cum tenetur repellendus sapiente veniam quisquam, voluptate
-        assumenda maxime distinctio a, reiciendis mollitia sint odio eveniet
-        laborum consequuntur unde?
+        Welcome to Miami
       </p>
       <button onClick={() => props.isNewGame(false)}>OK</button>
     </IntroTextStyles>
