@@ -3,7 +3,9 @@ import {
   GET_PLAYER,
   GET_PLAYER_SUCCESS,
   GET_PLAYER_FAILURE,
-  SET_NEWGAME
+  SET_NEWGAME,
+  CREATE_SUCCESS,
+  LOGIN_SUCCESS
 } from "./types";
 
 /* Player actions */
@@ -27,3 +29,4 @@ export const isNewGame = bool => {
     payload: bool
   };
 };
+
