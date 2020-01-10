@@ -20,6 +20,17 @@ const IntroTextStyles = styled.div`
 `;
 
 const IntroText = props => {
+  if (props.dead){
+    return (
+      <IntroTextStyles>
+        <h3>GAME OVER</h3>
+        <p>
+          You Died
+        </p>
+        <button onClick={() => props.isNewGame(false)}>OK</button>
+      </IntroTextStyles>
+    );
+  }
   return (
     <IntroTextStyles>
       <h3>Intro</h3>

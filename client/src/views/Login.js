@@ -43,7 +43,19 @@ export default function Login({ history }) {
     const login = e => {
         e.preventDefault();
         // axios
-        //     .post('URL_HERE', creds)
+        //     .post('https://we-cant-name-things.herokuapp.com/api/players/', {
+        //         "email": "seanwu20@gmail.com",
+        //         "food": 20,
+        //         "water": 88,
+        //         "state": "Canada",
+        //         "city": "Canada_1",
+        //         "location": "gas_station",
+        //         "food_available": 5,
+        //         "water_available": 6,
+        //         "location_2": "fast_food",
+        //         "food_available_2": 5,
+        //         "water_available_2": 10
+        //     })
         //     .then(res => {
         //         console.log('response =>',res)
         //         localStorage.setItem('token', "token_here")
@@ -51,7 +63,9 @@ export default function Login({ history }) {
         //     })
         //     .catch(err => console.log(err))
         localStorage.setItem('game_token', "token_here")
+        localStorage.setItem('game_email', creds.email)
         history.push('/')
+        window.location.reload()
         }
     
     return (
