@@ -2,23 +2,26 @@ import {
   MOVE_PLAYER,
   GET_PLAYER,
   GET_PLAYER_SUCCESS,
-  GET_PLAYER_FAILURE
+  GET_PLAYER_FAILURE,
+  PICKUP_SUPPLIES,
+  NEXT_DESTINATION,
+  NEXT_DESTINATION_SUCCESS,
+  NEXT_DESTINATION_FAIL
 } from "../actions/types.js";
 
 const intialState = {
-  name: "gsamaniego41@gmail.com",
+  email: "gsamaniego41@gmail.com",
   position: [600, 540],
-  //   spriteLocation: "-120px",
   spriteLocation: "move_north",
   direction: "NORTH",
   topOfMap: false,
   isFetching: false,
   error: null,
-  food: 0,
-  water: 0,
+  food: 12,
+  water: 32,
   food_available: 2,
-  water_available: 2,
-  food_available2: 5,
+  water_available: 7,
+  food_available2: 1,
   water_available2: 5,
   city: "Miami",
   state: "Florida",
@@ -34,10 +37,18 @@ const player = (state = intialState, action) => {
         ...action.payload
       };
     case GET_PLAYER_SUCCESS:
-      console.log("res.data:", action.payload);
       return {...state, ...action.payload};
     case GET_PLAYER_FAILURE:
-      console.log("error", action.payload);
+      return {...state, error: action.payload};
+    case PICKUP_SUPPLIES:
+      const {food, water} = action.payload;
+      return {...state, food: state.food + food, water: state.water + water};
+    case NEXT_DESTINATION:
+      return {...state, isFetching: true, topOfMap: false};
+    case NEXT_DESTINATION_SUCCESS:
+      console.log("NEXT_DESTINATION_SUCCESS");
+      return {...state, ...action.payload, position: [600, 540]};
+    case NEXT_DESTINATION_FAIL:
       return {...state, error: action.payload};
     default:
       return state;

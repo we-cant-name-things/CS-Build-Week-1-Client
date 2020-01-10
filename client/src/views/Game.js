@@ -23,6 +23,7 @@ const Game = props => {
 
   useEffect(() => {
     props.getPlayer();
+    // props.getPlayer(props.player.email);
   }, []);
 
   console.log(props.player.topOfMap);
@@ -37,7 +38,9 @@ const Game = props => {
           margin: "20px auto"
         }}
       >
-        {props.game.isNewGame ? <IntroText /> : null}
+        {props.game.isNewGame && props.player.city === "Miami" ? (
+          <IntroText />
+        ) : null}
         <Map />
         <Player />
         {props.player.topOfMap ? <Popup /> : null}

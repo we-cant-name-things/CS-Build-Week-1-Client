@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
 import {MAP_HEIGHT} from "../constants";
 import styled from "styled-components";
+import {moveToNextDestination} from "../actions";
 
 const PopupStyles = styled.div`
   font-size: 14px;
@@ -30,18 +31,26 @@ const OptionStyles = styled.div`
   }
 `;
 
-const cost = {
-  food: 2,
-  water: 3
-};
+// const cost = {
+//   food: 2,
+//   water: 3
+// };
 
-const nextDestination = {
-  option1: "Los Angeles",
-  option2: "San Francisco"
-};
+// const nextDestination = {
+//   option1: "Los Angeles",
+//   option2: "San Francisco"
+// };
 
 const Popup = props => {
-  console.log(props.player);
+  // const {player} = props;
+  // const [city, setCity] = useState(null);
+  const reqBody = {
+    email: props.player.email,
+    food: props.player.food,
+    water: props.player.water,
+    new_city: ""
+  };
+  // console.log(props.props.player);
   return (
     <PopupStyles>
       <p>Choose your next destination:</p>
@@ -54,14 +63,36 @@ const Popup = props => {
       Cost: random int between -1 and -4
       */}
       <div>
-        <OptionStyles>
-          <button>{nextDestination.option1}</button>
-          {` Food -${cost.food}, Water -${cost.water}`}
-        </OptionStyles>
-        <OptionStyles>
-          <button>{nextDestination.option2}</button>
-          {` Food -${cost.food}, Water -${cost.water}`}
-        </OptionStyles>
+        {props.player.left && (
+          <OptionStyles>
+            <button
+              onClick={e =>
+                props.moveToNextDestination(e, {
+                  ...reqBody,
+                  new_city: props.player.left
+                })
+              }
+            >
+              {props.player.left}
+            </button>
+            {/* {` Food -${cost.food}, Water -${cost.water}`} */}
+          </OptionStyles>
+        )}
+        {props.player.right && (
+          <OptionStyles>
+            <button
+              onClick={e =>
+                props.moveToNextDestination(e, {
+                  ...reqBody,
+                  new_city: props.player.right
+                })
+              }
+            >
+              {props.player.right}
+            </button>
+            {/* {` Food -${cost.food}, Water -${cost.water}`} */}
+          </OptionStyles>
+        )}
         <p style={{color: "red"}}>Walk down to stay here.</p>
       </div>
     </PopupStyles>
@@ -74,4 +105,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Popup);
+export default connect(mapStateToProps, {moveToNextDestination})(Popup);
