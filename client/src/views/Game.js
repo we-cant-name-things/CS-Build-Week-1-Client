@@ -11,6 +11,7 @@ import Controls from "../components/Controls";
 import Popup from "../components/Popup";
 import IntroText from "../components/IntroText";
 
+
 const Game = props => {
   useEffect(() => {
     store.dispatch({
@@ -48,6 +49,7 @@ const Game = props => {
       <div className="game_container">
         <Stats />
         <Controls />
+
       </div>
     </>
   );
