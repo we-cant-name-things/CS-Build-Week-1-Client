@@ -60,8 +60,8 @@ export default function Login({ history }) {
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
                     <PopupStyles onSubmit={login} style={{ display: 'flex', flexDirection: 'column', width: '250px', alignItems: 'center'}}>
                     <p style={{ color: 'red'}}>GAME_TITLE_HERE</p>
-                        <input placeholder='E-mail' onChange={changeHandler} name='email' value={creds.email} style={{ marginBottom: '10px'}} />
-                        <input placeholder='Password' type='password' onChange={changeHandler} name='password' value={creds.password} style={{ marginBottom: '10px'}} />
+                        <input placeholder='E-mail' onChange={changeHandler} name='email' value={creds.email} style={{ marginBottom: '10px'}} required />
+                        <input placeholder='Password' type='password' onChange={changeHandler} name='password' value={creds.password} style={{ marginBottom: '10px'}} required />
                         {newUser ? <OptionStyles><button>Create</button></OptionStyles>: <button className='btn' >Login</button>}
                     <OptionStyles>
                         <p style={{ marginBottom: '5px'}}>------or------</p>
