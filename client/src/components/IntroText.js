@@ -18,7 +18,7 @@ const IntroTextStyles = styled.div`
     float: right;
   }
 `;
-
+ 
 const IntroText = props => {
   return (
     <IntroTextStyles>
